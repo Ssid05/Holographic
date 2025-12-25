@@ -21,9 +21,15 @@ export class GestureController {
   }
 
   async start() {
+    if (this.camera) {
+      return;
+    }
+
     this.videoElement = document.createElement('video');
     this.videoElement.className = 'hidden-video';
     this.videoElement.playsInline = true;
+    this.videoElement.autoplay = true;
+    this.videoElement.muted = true;
     document.body.appendChild(this.videoElement);
 
     this.hands = new Hands({
@@ -43,23 +49,37 @@ export class GestureController {
 
     this.camera = new Camera(this.videoElement, {
       onFrame: async () => {
-        if (this.hands && this.videoElement) {
-          await this.hands.send({ image: this.videoElement });
+        if (this.hands && this.videoElement && this.videoElement.readyState >= 2) {
+          try {
+            await this.hands.send({ image: this.videoElement });
+          } catch (e) {
+            // Silently handle frame processing errors
+          }
         }
       },
       width: 640,
       height: 480
     });
 
-    await this.camera.start();
+    try {
+      await this.camera.start();
+    } catch (e) {
+      console.warn('Camera initialization delayed, retrying...');
+    }
   }
 
   stop() {
     if (this.camera) {
       this.camera.stop();
+      this.camera = null;
+    }
+    if (this.hands) {
+      this.hands.close();
+      this.hands = null;
     }
     if (this.videoElement && this.videoElement.parentNode) {
       this.videoElement.parentNode.removeChild(this.videoElement);
+      this.videoElement = null;
     }
   }
 
