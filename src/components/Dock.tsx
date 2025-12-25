@@ -12,6 +12,7 @@ const apps = [
   { id: 'calculator', name: 'Calculator', icon: '🔢', gradient: 'linear-gradient(135deg, #FF9500, #FF3B30)' },
   { id: 'notes', name: 'Notes', icon: '📝', gradient: 'linear-gradient(135deg, #FFCC00, #FF9500)' },
   { id: 'music', name: 'Music', icon: '🎵', gradient: 'linear-gradient(135deg, #FF2D55, #FF6B6B)' },
+  { id: 'dashboard', name: 'Dashboard', icon: '⚙️', gradient: 'linear-gradient(135deg, #00FFFF, #007AFF)' },
 ];
 
 export default function Dock({ selectedIndex, activeApp, onSelect }: Props) {

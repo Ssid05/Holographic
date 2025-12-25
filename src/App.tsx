@@ -26,8 +26,8 @@ function App() {
         setAppState(prev => ({ ...prev, selectedDockIndex: data.index }));
         break;
       case 'select':
-        if (data.index >= 0 && data.index < 5) {
-          const apps = ['assistant', 'weather', 'calculator', 'notes', 'music'];
+        if (data.index >= 0 && data.index < 6) {
+          const apps = ['assistant', 'weather', 'calculator', 'notes', 'music', 'dashboard'];
           setAppState(prev => ({ ...prev, activeApp: apps[data.index] }));
         }
         break;
@@ -53,6 +53,8 @@ function App() {
       setAppState(prev => ({ ...prev, activeApp: 'notes' }));
     } else if (lowerCommand.includes('open music') || lowerCommand.includes('play music')) {
       setAppState(prev => ({ ...prev, activeApp: 'music' }));
+    } else if (lowerCommand.includes('open dashboard') || lowerCommand.includes('show dashboard') || lowerCommand.includes('settings')) {
+      setAppState(prev => ({ ...prev, activeApp: 'dashboard' }));
     } else if (lowerCommand.includes('close') || lowerCommand.includes('exit')) {
       setAppState(prev => ({ ...prev, activeApp: null }));
     }
