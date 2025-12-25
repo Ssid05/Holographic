@@ -1,0 +1,57 @@
+Create a premium Apple Vision Pro–inspired web application called Holo AI Web using React + TypeScript + Vite with an ultra-clean Apple-style UI.
+🎨 Design & UI (VERY IMPORTANT)
+Apple Vision Pro–level design (glassmorphism, depth blur, smooth animations)
+Dark futuristic background with soft gradients
+Floating dock at bottom (Apple style) with ONLY 5 apps
+Zero clutter, zero debug overlays
+No unnecessary blue lights or hand-tracking visuals in normal mode
+60fps smooth animations and transitions
+🧠 Core Concept
+A touch-less, gesture-controlled + voice-controlled web interface (Jarvis-style) that works using:
+Camera
+Hand gestures (air commands)
+Voice commands
+✋ Hand Registration (Security Gate)
+On first launch, show hand registration screen
+Ask user to show front and back of BOTH hands
+Show holographic hand skeleton ONLY during registration
+After registration → hide all hand visuals completely
+If hands are not registered → NOTHING should work
+🖐️ Gesture Controls (Both Hands)
+Support left & right hand
+Any finger can be used
+Gestures:
+Point finger → hover/select app
+Thumb + index pinch (snap sound / chetika) → select
+Hold pinch (1s) → open app
+Hold pinch (2s) → close app
+Show both hands + open/close fists 3 times → turn camera ON/OFF
+No visible cursor, only subtle glow on selected icon
+🎙️ Voice Commands (Jarvis-Style)
+Natural language voice recognition
+AI voice replies (human-like)
+Example commands:
+“Open weather”
+“What is my current location?”
+“Tell today’s temperature”
+“Close app”
+Voice + gesture should work together seamlessly
+📱 Apps (ONLY 5)
+Assistant – talks back like Jarvis
+Weather – detects current location & speaks result
+Calculator – gesture + voice input
+Notes – voice dictation
+Music – play/pause with gestures
+⚙️ Tech Requirements
+React + TypeScript
+Vite
+MediaPipe Hands (or equivalent)
+Web Speech API (voice in/out)
+Modular clean folder structure
+Production-ready code (no mockups)
+🚫 Strict Rules
+No debug text
+No hand dots/lines after registration
+No placeholder UI
+No template leftovers
+Must feel like Apple product demo
