@@ -19,7 +19,7 @@ const HAND_CONNECTIONS = [
 ];
 
 export default function HandRegistration({ onComplete }: Props) {
-  const [step, setStep] = useState<'welcome' | 'left-front' | 'left-back' | 'right-front' | 'right-back' | 'complete'>('welcome');
+  const [step, setStep] = useState<'welcome' | 'left-front' | 'left-back' | 'right-front' | 'right-back' | 'complete'>('left-front');
   const [progress, setProgress] = useState(0);
   const [handDetected, setHandDetected] = useState(false);
   const [registrationData, setRegistrationData] = useState<Partial<HandRegistrationData>>({});

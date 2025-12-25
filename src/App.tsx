@@ -74,6 +74,12 @@ function App() {
   const handleEnterDemo = () => {
     setShowLanding(false);
     document.body.classList.add('no-scroll');
+    // Auto-complete registration to skip the welcome screen and go directly to camera
+    setAppState(prev => ({
+      ...prev,
+      isHandsRegistered: false, // This will show HandRegistration component
+      isCameraActive: true
+    }));
   };
 
   useEffect(() => {
