@@ -1,17 +1,68 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './LandingPage.css';
 
 interface Props {
   onEnterDemo: () => void;
 }
 
+function useCountUp(end: number, duration: number = 2000, start: boolean = false) {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    if (!start) return;
+    
+    let startTime: number;
+    let animationFrame: number;
+    
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(easeOut * end));
+      
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+    
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end, duration, start]);
+  
+  return count;
+}
+
 export default function LandingPage({ onEnterDemo }: Props) {
   const [scrollY, setScrollY] = useState(0);
+  const [statsVisible, setStatsVisible] = useState(false);
+  const statsRef = useRef<HTMLElement>(null);
+
+  const fps = useCountUp(30, 2000, statsVisible);
+  const apps = useCountUp(6, 1500, statsVisible);
+  const landmarks = useCountUp(21, 2000, statsVisible);
+  const latency = useCountUp(200, 2000, statsVisible);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -113,22 +164,22 @@ export default function LandingPage({ onEnterDemo }: Props) {
         </div>
       </section>
 
-      <section className="stats-section">
+      <section className="stats-section" ref={statsRef}>
         <div className="stats-grid">
           <div className="stat-item">
-            <span className="stat-number">30</span>
+            <span className="stat-number">{fps}</span>
             <span className="stat-label">FPS Gesture Detection</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">5</span>
+            <span className="stat-number">{apps}</span>
             <span className="stat-label">Integrated Apps</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">21</span>
+            <span className="stat-number">{landmarks}</span>
             <span className="stat-label">Hand Landmarks</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">&lt;200</span>
+            <span className="stat-number">&lt;{latency}</span>
             <span className="stat-label">ms Voice Latency</span>
           </div>
         </div>
