@@ -74,12 +74,20 @@ function App() {
   const handleEnterDemo = () => {
     setShowLanding(false);
     document.body.classList.add('no-scroll');
-    // Auto-complete registration to skip the welcome screen and go directly to camera
+    // Skip registration entirely - go directly to holographic interface
     setAppState(prev => ({
       ...prev,
-      isHandsRegistered: false, // This will show HandRegistration component
+      isHandsRegistered: true,
       isCameraActive: true
     }));
+    // Set default hand data
+    setHandData({
+      leftHandFront: true,
+      leftHandBack: true,
+      rightHandFront: true,
+      rightHandBack: true,
+      timestamp: Date.now()
+    });
   };
 
   useEffect(() => {
