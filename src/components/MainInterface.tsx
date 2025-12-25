@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useRef, useEffect, useState } from 'react';
 import Dock from './Dock';
 import StatusBar from './StatusBar';
 import AssistantApp from './apps/AssistantApp';
@@ -28,6 +28,31 @@ const GestureIcon = () => (
 );
 
 export default function MainInterface({ appState, setAppState, voiceController }: Props) {
+  const cameraPreviewRef = useRef<HTMLVideoElement>(null);
+  const [cameraReady, setCameraReady] = useState(false);
+
+  useEffect(() => {
+    if (appState.isCameraActive && cameraPreviewRef.current) {
+      navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240 } })
+        .then(stream => {
+          if (cameraPreviewRef.current) {
+            cameraPreviewRef.current.srcObject = stream;
+            setCameraReady(true);
+          }
+        })
+        .catch(err => {
+          console.warn('Camera preview not available:', err);
+        });
+    }
+
+    return () => {
+      if (cameraPreviewRef.current && cameraPreviewRef.current.srcObject) {
+        const tracks = (cameraPreviewRef.current.srcObject as MediaStream).getTracks();
+        tracks.forEach(track => track.stop());
+      }
+    };
+  }, [appState.isCameraActive]);
+
   const handleAppSelect = (appId: string) => {
     setAppState(prev => ({ ...prev, activeApp: appId }));
   };
@@ -93,6 +118,28 @@ export default function MainInterface({ appState, setAppState, voiceController }
       </div>
       
       <StatusBar appState={appState} onOpenDashboard={handleOpenDashboard} />
+      
+      {appState.isCameraActive && (
+        <div className="camera-preview">
+          <video 
+            ref={cameraPreviewRef} 
+            autoPlay 
+            playsInline 
+            muted 
+            className={`preview-video ${cameraReady ? 'ready' : ''}`}
+          />
+          <div className="preview-overlay">
+            <div className="preview-corner tl" />
+            <div className="preview-corner tr" />
+            <div className="preview-corner bl" />
+            <div className="preview-corner br" />
+          </div>
+          <div className="preview-label">
+            <span className="recording-dot" />
+            Gesture Tracking
+          </div>
+        </div>
+      )}
       
       <div className="content-area">
         {!appState.activeApp && (
