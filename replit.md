@@ -1,7 +1,7 @@
 # AI-Driven Multimodal Holographic Human-Computer Interaction System
 
 ## Project Overview
-A premium holographic-style web application featuring contactless, gesture-based and voice-controlled human-computer interaction. This system demonstrates AI-driven multimodal interfaces using computer vision and natural language processing.
+A premium Apple-style website showcasing the AI-driven multimodal holographic human-computer interaction system. Features a sleek landing page with project information and an interactive demo with contactless gesture-based and voice-controlled interaction.
 
 **Course**: B.Tech CSE AI ML DL  
 **Domain**: Artificial Intelligence, Computer Vision, Human-Computer Interaction (HCI)
@@ -10,7 +10,24 @@ A premium holographic-style web application featuring contactless, gesture-based
 - **Frontend**: React 19 + TypeScript + Vite 7
 - **Gesture Recognition**: MediaPipe Hands (AI-based hand tracking)
 - **Voice Processing**: Web Speech API (recognition + synthesis)
-- **UI**: Holographic-style simulation with glassmorphism effects
+- **UI**: Apple-style landing page + Holographic demo interface
+
+## Website Structure
+
+### Landing Page (Apple-style)
+- Hero section with animated title
+- Features section (4 key features)
+- Stats section with metrics
+- Modules section (5 project modules)
+- Demo preview section
+- About section with project details
+- Navigation and footer
+
+### Interactive Demo
+- Hand registration system
+- 6 apps: Assistant, Weather, Calculator, Notes, Music, Dashboard
+- Gesture controls (point, pinch, fist)
+- Voice commands
 
 ## Project Modules
 
@@ -44,40 +61,14 @@ A premium holographic-style web application featuring contactless, gesture-based
 - Performance metrics display
 - Settings configuration
 
-## Features
-
-### Hand Registration (Security Gate)
-- Shows holographic hand skeleton during registration
-- Requires front/back of both hands (4 steps)
-- After registration, all hand visuals are hidden
-- Secure access control
-
-### Gesture Controls
-- Point finger to hover/select apps
-- Thumb + index pinch (snap sound) to select
-- Hold pinch 1s to open app
-- Hold pinch 2s to close app
-- Show both hands + open/close fists 3x to toggle camera
-
-### Voice Commands
-- "Open assistant/weather/calculator/notes/music"
-- "Close" or "exit" to close current app
-- Natural language AI responses
-
-### Apps (5 Applications)
-1. **Assistant** - Jarvis-style AI that talks back
-2. **Weather** - Auto-detects location, speaks results
-3. **Calculator** - Gesture + voice input support
-4. **Notes** - Voice dictation with local storage
-5. **Music** - Play/pause with controls, ambient sound generator
-
 ## Project Structure
 ```
 src/
   components/
+    LandingPage.tsx/.css        - Apple-style landing page
     HandRegistration.tsx/.css   - Hand registration flow
     MainInterface.tsx/.css      - Main app container
-    Dock.tsx/.css               - Floating dock with 5 apps
+    Dock.tsx/.css               - Floating dock with 6 apps
     StatusBar.tsx/.css          - System status indicators
     apps/
       AssistantApp.tsx          - AI assistant
@@ -103,6 +94,23 @@ src/
 ```bash
 npx vite --host 0.0.0.0 --port 5000
 ```
+
+## User Flow
+1. Landing page loads with Apple-style design
+2. Click "Try Demo" or "Experience Demo" to enter
+3. Complete hand registration (4 steps)
+4. Access the holographic interface with 6 apps
+5. Use gestures or voice commands to interact
+
+## Voice Commands
+- "Open assistant/weather/calculator/notes/music/dashboard"
+- "Show dashboard" or "settings"
+- "Close" or "exit" to close apps
+
+## Gesture Controls
+- Point to hover over apps in dock
+- Pinch (thumb + index) to select
+- Hold pinch to open/close apps
 
 ## Browser Requirements
 - Camera access (for hand tracking via MediaPipe)
