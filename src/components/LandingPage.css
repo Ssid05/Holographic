@@ -524,29 +524,67 @@
 
 .floating-app {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  width: 56px;
+  height: 56px;
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-  animation: appOrbit 8s linear infinite;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(0, 212, 255, 0.15);
+  animation: appFloat 6s ease-in-out infinite;
+  overflow: hidden;
 }
 
-.app-1 { top: 5%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
-.app-2 { top: 25%; right: 5%; animation-delay: -1.3s; }
-.app-3 { bottom: 25%; right: 5%; animation-delay: -2.6s; }
-.app-4 { bottom: 5%; left: 50%; transform: translateX(-50%); animation-delay: -4s; }
-.app-5 { bottom: 25%; left: 5%; animation-delay: -5.3s; }
-.app-6 { top: 25%; left: 5%; animation-delay: -6.6s; }
+.floating-app .preview-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 
-@keyframes appOrbit {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 1; }
+.app-1 { top: 2%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+.app-2 { top: 22%; right: 2%; animation-delay: -1s; }
+.app-3 { bottom: 22%; right: 2%; animation-delay: -2s; }
+.app-4 { bottom: 2%; left: 50%; transform: translateX(-50%); animation-delay: -3s; }
+.app-5 { bottom: 22%; left: 2%; animation-delay: -4s; }
+.app-6 { top: 22%; left: 2%; animation-delay: -5s; }
+
+@keyframes appFloat {
+  0%, 100% { 
+    transform: scale(1) translateY(0); 
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 212, 255, 0.15);
+  }
+  50% { 
+    transform: scale(1.05) translateY(-4px); 
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 212, 255, 0.25);
+  }
+}
+
+.app-1 {
+  animation: appFloat1 6s ease-in-out infinite;
+}
+
+.app-4 {
+  animation: appFloat4 6s ease-in-out infinite;
+}
+
+@keyframes appFloat1 {
+  0%, 100% { 
+    transform: translateX(-50%) scale(1) translateY(0); 
+  }
+  50% { 
+    transform: translateX(-50%) scale(1.05) translateY(-4px); 
+  }
+}
+
+@keyframes appFloat4 {
+  0%, 100% { 
+    transform: translateX(-50%) scale(1) translateY(0); 
+  }
+  50% { 
+    transform: translateX(-50%) scale(1.05) translateY(-4px); 
+  }
 }
 
 .voice-wave {

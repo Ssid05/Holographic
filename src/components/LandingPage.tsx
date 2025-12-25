@@ -256,12 +256,103 @@ export default function LandingPage({ onEnterDemo }: Props) {
                 <div className="hand-pulse"></div>
               </div>
               <div className="interface-apps">
-                <div className="floating-app app-1">🤖</div>
-                <div className="floating-app app-2">🌤️</div>
-                <div className="floating-app app-3">🔢</div>
-                <div className="floating-app app-4">📝</div>
-                <div className="floating-app app-5">🎵</div>
-                <div className="floating-app app-6">⚙️</div>
+                <div className="floating-app app-1">
+                  <svg viewBox="0 0 120 120" className="preview-icon">
+                    <defs>
+                      <linearGradient id="previewAssist" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#667eea"/>
+                        <stop offset="100%" stopColor="#764ba2"/>
+                      </linearGradient>
+                    </defs>
+                    <rect x="8" y="8" width="104" height="104" rx="24" fill="url(#previewAssist)"/>
+                    <circle cx="60" cy="60" r="22" fill="rgba(255,255,255,0.2)"/>
+                    <circle cx="60" cy="60" r="14" fill="white"/>
+                    <circle cx="60" cy="35" r="5" fill="white" opacity="0.9"/>
+                    <circle cx="60" cy="85" r="5" fill="white" opacity="0.9"/>
+                    <circle cx="35" cy="60" r="5" fill="white" opacity="0.9"/>
+                    <circle cx="85" cy="60" r="5" fill="white" opacity="0.9"/>
+                  </svg>
+                </div>
+                <div className="floating-app app-2">
+                  <svg viewBox="0 0 120 120" className="preview-icon">
+                    <defs>
+                      <linearGradient id="previewWeather" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#56CCF2"/>
+                        <stop offset="100%" stopColor="#2F80ED"/>
+                      </linearGradient>
+                      <linearGradient id="previewSun" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#FFE259"/>
+                        <stop offset="100%" stopColor="#FFA751"/>
+                      </linearGradient>
+                    </defs>
+                    <rect x="8" y="8" width="104" height="104" rx="24" fill="url(#previewWeather)"/>
+                    <circle cx="45" cy="45" r="18" fill="url(#previewSun)"/>
+                    <ellipse cx="70" cy="72" rx="28" ry="18" fill="white"/>
+                    <ellipse cx="55" cy="68" rx="18" ry="14" fill="white"/>
+                  </svg>
+                </div>
+                <div className="floating-app app-3">
+                  <svg viewBox="0 0 120 120" className="preview-icon">
+                    <defs>
+                      <linearGradient id="previewCalc" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#434343"/>
+                        <stop offset="100%" stopColor="#1a1a1a"/>
+                      </linearGradient>
+                    </defs>
+                    <rect x="8" y="8" width="104" height="104" rx="24" fill="url(#previewCalc)"/>
+                    <rect x="18" y="18" width="84" height="24" rx="4" fill="#3a3a3a"/>
+                    <text x="94" y="36" fill="white" fontSize="16" fontFamily="-apple-system" textAnchor="end">0</text>
+                    <rect x="84" y="50" width="16" height="16" rx="8" fill="#FF9500"/>
+                    <rect x="84" y="72" width="16" height="16" rx="8" fill="#FF9500"/>
+                  </svg>
+                </div>
+                <div className="floating-app app-4">
+                  <svg viewBox="0 0 120 120" className="preview-icon">
+                    <defs>
+                      <linearGradient id="previewNotes" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#FED330"/>
+                        <stop offset="100%" stopColor="#F7B731"/>
+                      </linearGradient>
+                    </defs>
+                    <rect x="8" y="8" width="104" height="104" rx="24" fill="url(#previewNotes)"/>
+                    <rect x="24" y="30" width="72" height="66" rx="4" fill="#FFFEF5"/>
+                    <line x="24" y="30" x2="96" y2="30" stroke="#E5C100" strokeWidth="6"/>
+                    <line x1="34" y1="48" x2="86" y2="48" stroke="#ccc" strokeWidth="1.5"/>
+                    <line x1="34" y1="60" x2="86" y2="60" stroke="#ccc" strokeWidth="1.5"/>
+                    <line x1="34" y1="72" x2="86" y2="72" stroke="#ccc" strokeWidth="1.5"/>
+                  </svg>
+                </div>
+                <div className="floating-app app-5">
+                  <svg viewBox="0 0 120 120" className="preview-icon">
+                    <defs>
+                      <linearGradient id="previewMusic" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#fc5c7d"/>
+                        <stop offset="100%" stopColor="#6a1b9a"/>
+                      </linearGradient>
+                    </defs>
+                    <rect x="8" y="8" width="104" height="104" rx="24" fill="url(#previewMusic)"/>
+                    <ellipse cx="45" cy="76" rx="12" ry="9" fill="white"/>
+                    <ellipse cx="78" cy="66" rx="12" ry="9" fill="white"/>
+                    <rect x="53" y="34" width="5" height="42" rx="2" fill="white"/>
+                    <rect x="86" y="30" width="5" height="36" rx="2" fill="white"/>
+                    <path d="M56 34 L56 30 L88 24 L88 30 Z" fill="white"/>
+                  </svg>
+                </div>
+                <div className="floating-app app-6">
+                  <svg viewBox="0 0 120 120" className="preview-icon">
+                    <defs>
+                      <linearGradient id="previewSettings" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#8e9eab"/>
+                        <stop offset="100%" stopColor="#555555"/>
+                      </linearGradient>
+                    </defs>
+                    <rect x="8" y="8" width="104" height="104" rx="24" fill="url(#previewSettings)"/>
+                    <g transform="translate(60,60)">
+                      <path d="M0,-32 L5,-30 L7,-25 L12,-23 L15,-28 L22,-25 L20,-18 L25,-15 L30,-18 L32,-12 L27,-8 L28,-3 L32,0 L28,3 L27,8 L32,12 L30,18 L25,15 L20,18 L22,25 L15,28 L12,23 L7,25 L5,30 L0,32 L-5,30 L-7,25 L-12,23 L-15,28 L-22,25 L-20,18 L-25,15 L-30,18 L-32,12 L-27,8 L-28,3 L-32,0 L-28,-3 L-27,-8 L-32,-12 L-30,-18 L-25,-15 L-20,-18 L-22,-25 L-15,-28 L-12,-23 L-7,-25 L-5,-30 Z" fill="#c0c0c0"/>
+                      <circle cx="0" cy="0" r="12" fill="#555"/>
+                    </g>
+                  </svg>
+                </div>
               </div>
               <div className="voice-wave">
                 <div className="wave-bar"></div>
