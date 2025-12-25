@@ -7,64 +7,40 @@
   overflow: hidden;
 }
 
-.holographic-background {
+.camera-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
+  background: #000;
+}
+
+.camera-feed {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.camera-feed.ready {
+  opacity: 1;
+}
+
+.camera-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 30%,
+    rgba(0, 0, 0, 0.1) 70%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
   pointer-events: none;
-}
-
-.bg-gradient-1 {
-  position: absolute;
-  top: -20%;
-  left: -20%;
-  width: 60%;
-  height: 60%;
-  background: radial-gradient(ellipse, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
-  filter: blur(80px);
-  animation: floatGradient1 20s ease-in-out infinite;
-}
-
-.bg-gradient-2 {
-  position: absolute;
-  bottom: -20%;
-  right: -20%;
-  width: 70%;
-  height: 70%;
-  background: radial-gradient(ellipse, rgba(139, 92, 246, 0.06) 0%, transparent 70%);
-  filter: blur(80px);
-  animation: floatGradient2 25s ease-in-out infinite;
-}
-
-.bg-gradient-3 {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  width: 50%;
-  height: 50%;
-  background: radial-gradient(ellipse, rgba(0, 255, 200, 0.04) 0%, transparent 70%);
-  filter: blur(60px);
-  animation: floatGradient3 18s ease-in-out infinite;
-}
-
-@keyframes floatGradient1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(10%, 15%) scale(1.1); }
-  66% { transform: translate(-5%, 10%) scale(0.95); }
-}
-
-@keyframes floatGradient2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-15%, -10%) scale(1.05); }
-  66% { transform: translate(10%, -15%) scale(1.1); }
-}
-
-@keyframes floatGradient3 {
-  0%, 100% { transform: translate(-50%, 0) scale(1); }
-  50% { transform: translate(-50%, -20%) scale(1.15); }
 }
 
 .holographic-grid {
@@ -74,166 +50,12 @@
   width: 100%;
   height: 100%;
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.015) 1px, transparent 1px);
-  background-size: 80px 80px;
-  z-index: 0;
+    linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 1;
   pointer-events: none;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
-}
-
-.ambient-particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.particle {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: rgba(0, 212, 255, 0.6);
-  border-radius: 50%;
-  animation: floatParticle 15s linear infinite;
-}
-
-.particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
-.particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 14s; }
-.particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 16s; }
-.particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 13s; }
-.particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 15s; }
-.particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 11s; }
-.particle:nth-child(7) { left: 70%; animation-delay: 2s; animation-duration: 17s; }
-.particle:nth-child(8) { left: 80%; animation-delay: 4s; animation-duration: 14s; }
-.particle:nth-child(9) { left: 90%; animation-delay: 1s; animation-duration: 12s; }
-
-@keyframes floatParticle {
-  0% {
-    transform: translateY(100vh) scale(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-    transform: translateY(90vh) scale(1);
-  }
-  90% {
-    opacity: 1;
-    transform: translateY(10vh) scale(1);
-  }
-  100% {
-    transform: translateY(0vh) scale(0);
-    opacity: 0;
-  }
-}
-
-.camera-preview {
-  position: fixed;
-  top: 70px;
-  right: 20px;
-  width: 200px;
-  height: 150px;
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(0, 212, 255, 0.1);
-  z-index: 50;
-}
-
-.preview-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scaleX(-1);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.preview-video.ready {
-  opacity: 1;
-}
-
-.preview-overlay {
-  position: absolute;
-  inset: 12px;
-  pointer-events: none;
-}
-
-.preview-corner {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(0, 212, 255, 0.6);
-}
-
-.preview-corner.tl {
-  top: 0;
-  left: 0;
-  border-right: none;
-  border-bottom: none;
-  border-radius: 4px 0 0 0;
-}
-
-.preview-corner.tr {
-  top: 0;
-  right: 0;
-  border-left: none;
-  border-bottom: none;
-  border-radius: 0 4px 0 0;
-}
-
-.preview-corner.bl {
-  bottom: 0;
-  left: 0;
-  border-right: none;
-  border-top: none;
-  border-radius: 0 0 0 4px;
-}
-
-.preview-corner.br {
-  bottom: 0;
-  right: 0;
-  border-left: none;
-  border-top: none;
-  border-radius: 0 0 4px 0;
-}
-
-.preview-label {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 12px;
-  font-size: 10px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-}
-
-.recording-dot {
-  width: 6px;
-  height: 6px;
-  background: #00D4FF;
-  border-radius: 50%;
-  animation: recordingPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes recordingPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  opacity: 0.4;
 }
 
 .content-area {
@@ -243,7 +65,8 @@
   justify-content: center;
   padding: 40px;
   padding-bottom: calc(var(--dock-height) + 80px);
-  z-index: 1;
+  z-index: 10;
+  position: relative;
 }
 
 .welcome-screen {

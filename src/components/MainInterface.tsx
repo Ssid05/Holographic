@@ -28,30 +28,36 @@ const GestureIcon = () => (
 );
 
 export default function MainInterface({ appState, setAppState, voiceController }: Props) {
-  const cameraPreviewRef = useRef<HTMLVideoElement>(null);
+  const cameraRef = useRef<HTMLVideoElement>(null);
   const [cameraReady, setCameraReady] = useState(false);
 
   useEffect(() => {
-    if (appState.isCameraActive && cameraPreviewRef.current) {
-      navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240 } })
+    if (cameraRef.current) {
+      navigator.mediaDevices.getUserMedia({ 
+        video: { 
+          width: { ideal: 1280 }, 
+          height: { ideal: 720 },
+          facingMode: 'user'
+        } 
+      })
         .then(stream => {
-          if (cameraPreviewRef.current) {
-            cameraPreviewRef.current.srcObject = stream;
+          if (cameraRef.current) {
+            cameraRef.current.srcObject = stream;
             setCameraReady(true);
           }
         })
         .catch(err => {
-          console.warn('Camera preview not available:', err);
+          console.warn('Camera not available:', err);
         });
     }
 
     return () => {
-      if (cameraPreviewRef.current && cameraPreviewRef.current.srcObject) {
-        const tracks = (cameraPreviewRef.current.srcObject as MediaStream).getTracks();
+      if (cameraRef.current && cameraRef.current.srcObject) {
+        const tracks = (cameraRef.current.srcObject as MediaStream).getTracks();
         tracks.forEach(track => track.stop());
       }
     };
-  }, [appState.isCameraActive]);
+  }, []);
 
   const handleAppSelect = (appId: string) => {
     setAppState(prev => ({ ...prev, activeApp: appId }));
@@ -103,43 +109,20 @@ export default function MainInterface({ appState, setAppState, voiceController }
 
   return (
     <div className="main-interface">
-      <div className="holographic-background">
-        <div className="bg-gradient-1" />
-        <div className="bg-gradient-2" />
-        <div className="bg-gradient-3" />
+      <div className="camera-background">
+        <video 
+          ref={cameraRef} 
+          autoPlay 
+          playsInline 
+          muted 
+          className={`camera-feed ${cameraReady ? 'ready' : ''}`}
+        />
+        <div className="camera-overlay" />
       </div>
       
       <div className="holographic-grid" />
       
-      <div className="ambient-particles">
-        {[...Array(9)].map((_, i) => (
-          <div key={i} className="particle" />
-        ))}
-      </div>
-      
       <StatusBar appState={appState} onOpenDashboard={handleOpenDashboard} />
-      
-      {appState.isCameraActive && (
-        <div className="camera-preview">
-          <video 
-            ref={cameraPreviewRef} 
-            autoPlay 
-            playsInline 
-            muted 
-            className={`preview-video ${cameraReady ? 'ready' : ''}`}
-          />
-          <div className="preview-overlay">
-            <div className="preview-corner tl" />
-            <div className="preview-corner tr" />
-            <div className="preview-corner bl" />
-            <div className="preview-corner br" />
-          </div>
-          <div className="preview-label">
-            <span className="recording-dot" />
-            Gesture Tracking
-          </div>
-        </div>
-      )}
       
       <div className="content-area">
         {!appState.activeApp && (
