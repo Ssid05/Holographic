@@ -1,0 +1,163 @@
+.registration-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.registration-welcome,
+.registration-complete {
+  text-align: center;
+  padding: 60px 80px;
+  max-width: 500px;
+}
+
+.welcome-icon,
+.success-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 30px;
+}
+
+.hand-icon,
+.check-icon {
+  width: 100%;
+  height: 100%;
+  color: rgba(0, 122, 255, 0.8);
+}
+
+.registration-welcome h1,
+.registration-complete h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.registration-welcome p,
+.registration-complete p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.start-button {
+  font-size: 18px;
+  padding: 16px 48px;
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.3), rgba(88, 86, 214, 0.3));
+  border: 1px solid rgba(0, 122, 255, 0.4);
+}
+
+.start-button:hover {
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.5), rgba(88, 86, 214, 0.5));
+}
+
+.registration-panel {
+  padding: 40px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.step-label {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.step-count {
+  font-size: 14px;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.camera-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+}
+
+.camera-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.skeleton-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.detection-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.detection-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 4;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: rgba(0, 255, 255, 0.8);
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.1s ease-out;
+}
+
+.detection-ring.detected .ring-progress {
+  stroke: rgba(52, 199, 89, 0.9);
+}
+
+.instruction-text {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.instruction-text p {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.hold-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  animation: pulse 1.5s ease-in-out infinite;
+}
