@@ -12,6 +12,11 @@
   text-align: center;
   padding: 60px 80px;
   max-width: 500px;
+  background: rgba(10, 10, 20, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(0, 255, 255, 0.1);
 }
 
 .welcome-icon,
@@ -19,13 +24,15 @@
   width: 120px;
   height: 120px;
   margin: 0 auto 30px;
+  position: relative;
 }
 
 .hand-icon,
 .check-icon {
   width: 100%;
   height: 100%;
-  color: rgba(0, 122, 255, 0.8);
+  color: #00FFFF;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
 }
 
 .registration-welcome h1,
@@ -33,7 +40,7 @@
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+  background: linear-gradient(135deg, #00FFFF 0%, #fff 50%, rgba(0, 255, 255, 0.8) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -41,7 +48,7 @@
 .registration-welcome p,
 .registration-complete p {
   font-size: 16px;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.6;
   margin-bottom: 40px;
 }
@@ -49,18 +56,24 @@
 .start-button {
   font-size: 18px;
   padding: 16px 48px;
-  background: linear-gradient(135deg, rgba(0, 122, 255, 0.3), rgba(88, 86, 214, 0.3));
-  border: 1px solid rgba(0, 122, 255, 0.4);
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 122, 255, 0.2));
+  border: 1px solid rgba(0, 255, 255, 0.4);
 }
 
 .start-button:hover {
-  background: linear-gradient(135deg, rgba(0, 122, 255, 0.5), rgba(88, 86, 214, 0.5));
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.4), rgba(0, 122, 255, 0.4));
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
 }
 
 .registration-panel {
   padding: 40px;
   max-width: 700px;
   width: 100%;
+  background: rgba(10, 10, 20, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(0, 255, 255, 0.1);
 }
 
 .step-indicator {
@@ -73,15 +86,16 @@
 .step-label {
   font-size: 24px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #00FFFF;
 }
 
 .step-count {
   font-size: 14px;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 255, 255, 0.1);
   padding: 6px 14px;
   border-radius: 20px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
 }
 
 .camera-container {
@@ -91,6 +105,8 @@
   border-radius: 20px;
   overflow: hidden;
   background: #000;
+  border: 2px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
 }
 
 .camera-video {
@@ -128,20 +144,22 @@
 
 .ring-bg {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.1);
+  stroke: rgba(0, 255, 255, 0.15);
   stroke-width: 4;
 }
 
 .ring-progress {
   fill: none;
-  stroke: rgba(0, 255, 255, 0.8);
+  stroke: #00FFFF;
   stroke-width: 4;
   stroke-linecap: round;
   transition: stroke-dasharray 0.1s ease-out;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
 }
 
 .detection-ring.detected .ring-progress {
-  stroke: rgba(52, 199, 89, 0.9);
+  stroke: #34C759;
+  filter: drop-shadow(0 0 10px rgba(52, 199, 89, 0.8));
 }
 
 .instruction-text {
@@ -152,12 +170,32 @@
 .instruction-text p {
   font-size: 20px;
   font-weight: 500;
-  color: var(--text-primary);
+  color: #00FFFF;
   margin-bottom: 8px;
 }
 
 .hold-text {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.5);
   animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.scanning-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00FFFF, transparent);
+  animation: scan 2s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { top: 0; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
 }
