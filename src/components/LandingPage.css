@@ -4,6 +4,7 @@
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .apple-nav {
