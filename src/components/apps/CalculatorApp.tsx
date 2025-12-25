@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { VoiceController } from '../../services/voiceController';
 import './AppStyles.css';
 
@@ -40,11 +40,11 @@ export default function CalculatorApp({ onClose, voiceController }: Props) {
     setNewNumber(true);
   };
 
-  const handleEquals = () => {
+  const calculateResult = () => {
     try {
       const fullEquation = equation + display;
-      const sanitized = fullEquation.replace(/×/g, '*').replace(/÷/g, '/');
-      const result = eval(sanitized);
+      const sanitized = fullEquation.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
+      const result = Function('"use strict"; return (' + sanitized + ')')();
       const roundedResult = Math.round(result * 1000000) / 1000000;
       setDisplay(roundedResult.toString());
       setEquation('');
@@ -53,10 +53,16 @@ export default function CalculatorApp({ onClose, voiceController }: Props) {
       if (voiceController) {
         voiceController.speak(`The result is ${roundedResult}`);
       }
+      return roundedResult;
     } catch {
       setDisplay('Error');
       setNewNumber(true);
+      return null;
     }
+  };
+
+  const handleEquals = () => {
+    calculateResult();
   };
 
   const handleBackspace = () => {
@@ -72,18 +78,14 @@ export default function CalculatorApp({ onClose, voiceController }: Props) {
     if (!voiceController) return;
     
     if (isListening) {
-      voiceController.stopListening();
+      voiceController.setTempCallback(null);
       setIsListening(false);
     } else {
       setIsListening(true);
-      const originalCallback = (voiceController as any).callback;
-      (voiceController as any).callback = (text: string) => {
+      voiceController.listenOnce((text: string) => {
         parseVoiceCalculation(text);
         setIsListening(false);
-        voiceController.stopListening();
-        (voiceController as any).callback = originalCallback;
-      };
-      voiceController.startListening();
+      });
     }
   };
 
@@ -107,9 +109,9 @@ export default function CalculatorApp({ onClose, voiceController }: Props) {
 
     processed = processed
       .replace(/plus|add|\+/g, '+')
-      .replace(/minus|subtract|-/g, '-')
-      .replace(/times|multiplied by|multiply|\*/g, '*')
-      .replace(/divided by|divide|over|\//g, '/')
+      .replace(/minus|subtract/g, '-')
+      .replace(/times|multiplied by|multiply/g, '*')
+      .replace(/divided by|divide|over/g, '/')
       .replace(/equals|equal|is/g, '=');
 
     const calcMatch = processed.match(/(\d+)\s*([+\-*/])\s*(\d+)/);
@@ -117,7 +119,9 @@ export default function CalculatorApp({ onClose, voiceController }: Props) {
       const [, num1, op, num2] = calcMatch;
       setEquation(num1 + ' ' + op + ' ');
       setDisplay(num2);
-      setTimeout(handleEquals, 500);
+      setTimeout(() => {
+        handleEquals();
+      }, 500);
     }
   };
 
@@ -133,7 +137,7 @@ export default function CalculatorApp({ onClose, voiceController }: Props) {
     { label: '4', action: () => handleNumber('4'), className: 'number' },
     { label: '5', action: () => handleNumber('5'), className: 'number' },
     { label: '6', action: () => handleNumber('6'), className: 'number' },
-    { label: '−', action: () => handleOperator('-'), className: 'operator' },
+    { label: '−', action: () => handleOperator('−'), className: 'operator' },
     { label: '1', action: () => handleNumber('1'), className: 'number' },
     { label: '2', action: () => handleNumber('2'), className: 'number' },
     { label: '3', action: () => handleNumber('3'), className: 'number' },

@@ -18,15 +18,7 @@ function App() {
   const [handData, setHandData] = useState<HandRegistrationData | null>(null);
   const gestureControllerRef = useRef<GestureController | null>(null);
   const voiceControllerRef = useRef<VoiceController | null>(null);
-
-  const handleRegistrationComplete = useCallback((data: HandRegistrationData) => {
-    setHandData(data);
-    setAppState(prev => ({
-      ...prev,
-      isHandsRegistered: true,
-      isCameraActive: true,
-    }));
-  }, []);
+  const controllersInitialized = useRef(false);
 
   const handleGestureEvent = useCallback((event: string, data?: any) => {
     switch (event) {
@@ -34,7 +26,7 @@ function App() {
         setAppState(prev => ({ ...prev, selectedDockIndex: data.index }));
         break;
       case 'select':
-        if (data.index >= 0) {
+        if (data.index >= 0 && data.index < 5) {
           const apps = ['assistant', 'weather', 'calculator', 'notes', 'music'];
           setAppState(prev => ({ ...prev, activeApp: apps[data.index] }));
         }
@@ -66,23 +58,47 @@ function App() {
     }
   }, []);
 
+  const handleRegistrationComplete = useCallback((data: HandRegistrationData) => {
+    setHandData(data);
+    setAppState(prev => ({
+      ...prev,
+      isHandsRegistered: true,
+      isCameraActive: true,
+    }));
+  }, []);
+
   useEffect(() => {
-    if (appState.isHandsRegistered && appState.isCameraActive) {
-      if (!gestureControllerRef.current) {
-        gestureControllerRef.current = new GestureController(handleGestureEvent);
-        gestureControllerRef.current.start();
-      }
-      if (!voiceControllerRef.current) {
-        voiceControllerRef.current = new VoiceController(handleVoiceCommand);
-      }
+    if (appState.isHandsRegistered && !controllersInitialized.current) {
+      controllersInitialized.current = true;
+      
+      voiceControllerRef.current = new VoiceController(handleVoiceCommand);
+      
+      gestureControllerRef.current = new GestureController(handleGestureEvent);
+      gestureControllerRef.current.start();
     }
 
     return () => {
       if (gestureControllerRef.current) {
         gestureControllerRef.current.stop();
+        gestureControllerRef.current = null;
       }
+      if (voiceControllerRef.current) {
+        voiceControllerRef.current.stopListening();
+        voiceControllerRef.current = null;
+      }
+      controllersInitialized.current = false;
     };
-  }, [appState.isHandsRegistered, appState.isCameraActive, handleGestureEvent, handleVoiceCommand]);
+  }, [appState.isHandsRegistered, handleGestureEvent, handleVoiceCommand]);
+
+  useEffect(() => {
+    if (gestureControllerRef.current) {
+      if (appState.isCameraActive) {
+        gestureControllerRef.current.start();
+      } else {
+        gestureControllerRef.current.stop();
+      }
+    }
+  }, [appState.isCameraActive]);
 
   return (
     <div className="app-container">

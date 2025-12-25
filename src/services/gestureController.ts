@@ -69,8 +69,8 @@ export class GestureController {
     }
 
     const now = Date.now();
-    let leftHand = null;
-    let rightHand = null;
+    let leftHand: any = null;
+    let rightHand: any = null;
 
     results.multiHandLandmarks.forEach((landmarks, index) => {
       const handedness = results.multiHandedness?.[index]?.label;

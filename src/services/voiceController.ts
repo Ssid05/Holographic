@@ -3,11 +3,12 @@ type VoiceCallback = (command: string) => void;
 export class VoiceController {
   private recognition: any = null;
   private synthesis: SpeechSynthesis;
-  private callback: VoiceCallback;
+  private mainCallback: VoiceCallback;
+  private tempCallback: VoiceCallback | null = null;
   private isListening: boolean = false;
 
   constructor(callback: VoiceCallback) {
-    this.callback = callback;
+    this.mainCallback = callback;
     this.synthesis = window.speechSynthesis;
     this.initRecognition();
   }
@@ -28,18 +29,25 @@ export class VoiceController {
     this.recognition.onresult = (event: any) => {
       const last = event.results.length - 1;
       const command = event.results[last][0].transcript;
-      this.callback(command);
+      if (this.tempCallback) {
+        this.tempCallback(command);
+      } else {
+        this.mainCallback(command);
+      }
     };
 
     this.recognition.onerror = (event: any) => {
-      if (event.error !== 'no-speech') {
+      if (event.error !== 'no-speech' && event.error !== 'aborted') {
         console.warn('Speech recognition error:', event.error);
       }
     };
 
     this.recognition.onend = () => {
       if (this.isListening) {
-        this.recognition.start();
+        try {
+          this.recognition.start();
+        } catch (e) {
+        }
       }
     };
   }
@@ -50,7 +58,6 @@ export class VoiceController {
       try {
         this.recognition.start();
       } catch (e) {
-        // Already started
       }
     }
   }
@@ -58,13 +65,32 @@ export class VoiceController {
   stopListening() {
     if (this.recognition) {
       this.isListening = false;
-      this.recognition.stop();
+      try {
+        this.recognition.stop();
+      } catch (e) {
+      }
+    }
+  }
+
+  setTempCallback(callback: VoiceCallback | null) {
+    this.tempCallback = callback;
+  }
+
+  listenOnce(callback: VoiceCallback) {
+    this.tempCallback = (text: string) => {
+      callback(text);
+      this.tempCallback = null;
+    };
+    
+    if (!this.isListening) {
+      this.startListening();
     }
   }
 
   speak(text: string, onEnd?: () => void): Promise<void> {
     return new Promise((resolve) => {
       if (!this.synthesis) {
+        if (onEnd) onEnd();
         resolve();
         return;
       }
@@ -98,5 +124,9 @@ export class VoiceController {
 
   get isSupported(): boolean {
     return !!(this.recognition && this.synthesis);
+  }
+
+  get listening(): boolean {
+    return this.isListening;
   }
 }

@@ -73,19 +73,15 @@ export default function AssistantApp({ onClose, voiceController }: Props) {
     if (!voiceController) return;
     
     if (isListening) {
-      voiceController.stopListening();
+      voiceController.setTempCallback(null);
       setIsListening(false);
     } else {
       setIsListening(true);
-      const originalCallback = (voiceController as any).callback;
-      (voiceController as any).callback = (text: string) => {
+      voiceController.listenOnce((text: string) => {
         setMessages(prev => [...prev, { id: Date.now().toString(), type: 'user', text }]);
         setIsListening(false);
-        voiceController.stopListening();
-        (voiceController as any).callback = originalCallback;
         processCommand(text);
-      };
-      voiceController.startListening();
+      });
     }
   };
 

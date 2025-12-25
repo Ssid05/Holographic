@@ -63,18 +63,14 @@ export default function NotesApp({ onClose, voiceController }: Props) {
     if (!voiceController) return;
     
     if (isListening) {
-      voiceController.stopListening();
+      voiceController.setTempCallback(null);
       setIsListening(false);
     } else {
       setIsListening(true);
-      const originalCallback = (voiceController as any).callback;
-      (voiceController as any).callback = (text: string) => {
+      voiceController.listenOnce((text: string) => {
         setEditContent(prev => prev + (prev ? ' ' : '') + text);
         setIsListening(false);
-        voiceController.stopListening();
-        (voiceController as any).callback = originalCallback;
-      };
-      voiceController.startListening();
+      });
     }
   };
 
