@@ -17,6 +17,16 @@ interface Props {
   voiceController: VoiceController | null;
 }
 
+const GestureIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 14V3"/>
+    <path d="M8 7V4.5C8 3.67 8.67 3 9.5 3S11 3.67 11 4.5"/>
+    <path d="M13 4.5V3.5C13 2.67 13.67 2 14.5 2S16 2.67 16 3.5V7"/>
+    <path d="M16 5.5C16 4.67 16.67 4 17.5 4S19 4.67 19 5.5V14"/>
+    <path d="M8 14V7.5C8 6.67 7.33 6 6.5 6S5 6.67 5 7.5V16C5 19.31 7.69 22 11 22H13C16.31 22 19 19.31 19 16"/>
+  </svg>
+);
+
 export default function MainInterface({ appState, setAppState, voiceController }: Props) {
   const handleAppSelect = (appId: string) => {
     setAppState(prev => ({ ...prev, activeApp: appId }));
@@ -68,7 +78,19 @@ export default function MainInterface({ appState, setAppState, voiceController }
 
   return (
     <div className="main-interface">
+      <div className="holographic-background">
+        <div className="bg-gradient-1" />
+        <div className="bg-gradient-2" />
+        <div className="bg-gradient-3" />
+      </div>
+      
       <div className="holographic-grid" />
+      
+      <div className="ambient-particles">
+        {[...Array(9)].map((_, i) => (
+          <div key={i} className="particle" />
+        ))}
+      </div>
       
       <StatusBar appState={appState} onOpenDashboard={handleOpenDashboard} />
       
@@ -82,9 +104,13 @@ export default function MainInterface({ appState, setAppState, voiceController }
               <div className="logo-core">AI</div>
             </div>
             <h1 className="welcome-title">Holo AI</h1>
-            <p className="welcome-subtitle">AI-Driven Multimodal Holographic Interface</p>
+            <p className="welcome-subtitle">
+              AI-Driven Multimodal Holographic Interface
+            </p>
             <div className="gesture-hint">
-              <span className="hint-icon">👆</span>
+              <span className="hint-icon">
+                <GestureIcon />
+              </span>
               <span>Point and pinch to select an app</span>
             </div>
           </div>

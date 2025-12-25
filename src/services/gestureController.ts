@@ -136,8 +136,8 @@ export class GestureController {
   }
 
   private getDockIndexFromPosition(x: number): number {
-    const dockStart = 0.25;
-    const dockEnd = 0.75;
+    const dockStart = 0.2;
+    const dockEnd = 0.8;
     const dockWidth = dockEnd - dockStart;
     
     if (x < dockStart || x > dockEnd) {
@@ -145,7 +145,7 @@ export class GestureController {
     }
     
     const relativeX = (x - dockStart) / dockWidth;
-    return Math.floor(relativeX * 5);
+    return Math.min(Math.floor(relativeX * 6), 5);
   }
 
   private detectPinch(landmarks: any[]): boolean {
