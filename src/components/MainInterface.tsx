@@ -127,22 +127,6 @@ export default function MainInterface({ appState, setAppState, voiceController }
       <div className="content-area">
         {!appState.activeApp && (
           <div className="welcome-screen fade-in">
-            <div className="holo-logo">
-              <div className="logo-ring" />
-              <div className="logo-ring" />
-              <div className="logo-ring" />
-              <div className="logo-core">AI</div>
-            </div>
-            <h1 className="welcome-title">Holo AI</h1>
-            <p className="welcome-subtitle">
-              AI-Driven Multimodal Holographic Interface
-            </p>
-            <div className="gesture-hint">
-              <span className="hint-icon">
-                <GestureIcon />
-              </span>
-              <span>Point and pinch to select an app</span>
-            </div>
           </div>
         )}
         
