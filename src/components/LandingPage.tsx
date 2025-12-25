@@ -179,35 +179,90 @@ export default function LandingPage({ onEnterDemo }: Props) {
       </section>
 
       <section id="demo" className="demo-section">
-        <div className="demo-content">
-          <div className="demo-text">
-            <h2>Experience the Future</h2>
-            <p>Step into a world where technology responds to your natural movements. Our holographic interface transforms how you interact with digital systems.</p>
-            <ul className="demo-features">
-              <li>Point and pinch to navigate</li>
-              <li>Voice commands for hands-free control</li>
-              <li>6 built-in applications</li>
-              <li>Real-time hand skeleton tracking</li>
-            </ul>
-            <button className="btn-primary large" onClick={onEnterDemo}>
-              Launch Interactive Demo
-            </button>
+        <div className="demo-badge">Interactive Experience</div>
+        <h2 className="demo-title">Experience the Future</h2>
+        <p className="demo-subtitle">
+          Step into a world where technology responds to your natural movements. 
+          Our holographic interface transforms how you interact with digital systems.
+        </p>
+        
+        <div className="demo-showcase">
+          <div className="showcase-visual">
+            <div className="holo-interface">
+              <div className="interface-glow"></div>
+              <div className="floating-hand">
+                <svg viewBox="0 0 100 120" fill="none">
+                  <path d="M50 10 L50 35 M35 25 L35 50 M65 25 L65 50 M25 40 L25 60 M75 40 L75 60" 
+                        stroke="url(#handGradient)" strokeWidth="8" strokeLinecap="round"/>
+                  <ellipse cx="50" cy="85" rx="35" ry="25" stroke="url(#handGradient)" strokeWidth="4" fill="none"/>
+                  <defs>
+                    <linearGradient id="handGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#00d4ff"/>
+                      <stop offset="100%" stopColor="#0071e3"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div className="hand-pulse"></div>
+              </div>
+              <div className="interface-apps">
+                <div className="floating-app app-1">🤖</div>
+                <div className="floating-app app-2">🌤️</div>
+                <div className="floating-app app-3">🔢</div>
+                <div className="floating-app app-4">📝</div>
+                <div className="floating-app app-5">🎵</div>
+                <div className="floating-app app-6">⚙️</div>
+              </div>
+              <div className="voice-wave">
+                <div className="wave-bar"></div>
+                <div className="wave-bar"></div>
+                <div className="wave-bar"></div>
+                <div className="wave-bar"></div>
+                <div className="wave-bar"></div>
+              </div>
+            </div>
           </div>
-          <div className="demo-preview">
-            <div className="preview-frame">
-              <div className="preview-screen">
-                <div className="preview-dock">
-                  <span>🤖</span>
-                  <span>🌤️</span>
-                  <span>🔢</span>
-                  <span>📝</span>
-                  <span>🎵</span>
-                  <span>⚙️</span>
-                </div>
+          
+          <div className="showcase-features">
+            <div className="showcase-feature">
+              <div className="feature-num">01</div>
+              <div className="feature-detail">
+                <h4>Gesture Navigation</h4>
+                <p>Point to hover, pinch to select. Natural hand movements control the entire interface.</p>
+              </div>
+            </div>
+            <div className="showcase-feature">
+              <div className="feature-num">02</div>
+              <div className="feature-detail">
+                <h4>Voice Commands</h4>
+                <p>Speak naturally. AI understands and responds with text-to-speech feedback.</p>
+              </div>
+            </div>
+            <div className="showcase-feature">
+              <div className="feature-num">03</div>
+              <div className="feature-detail">
+                <h4>6 Built-in Apps</h4>
+                <p>Assistant, Weather, Calculator, Notes, Music, and System Dashboard.</p>
+              </div>
+            </div>
+            <div className="showcase-feature">
+              <div className="feature-num">04</div>
+              <div className="feature-detail">
+                <h4>Real-time Tracking</h4>
+                <p>21-point hand skeleton detection at 30 FPS for precise gesture recognition.</p>
               </div>
             </div>
           </div>
         </div>
+        
+        <button className="demo-cta" onClick={onEnterDemo}>
+          <span className="cta-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polygon points="5 3 19 12 5 21 5 3" fill="currentColor"/>
+            </svg>
+          </span>
+          <span className="cta-text">Launch Interactive Demo</span>
+          <span className="cta-arrow">→</span>
+        </button>
       </section>
 
       <section id="about" className="about-section">
