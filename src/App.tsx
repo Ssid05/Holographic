@@ -73,6 +73,7 @@ function App() {
 
   const handleEnterDemo = () => {
     setShowLanding(false);
+    document.body.classList.add('no-scroll');
   };
 
   useEffect(() => {
