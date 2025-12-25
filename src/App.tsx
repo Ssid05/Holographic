@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import LandingPage from './components/LandingPage';
 import HandRegistration from './components/HandRegistration';
 import MainInterface from './components/MainInterface';
 import { GestureController } from './services/gestureController';
@@ -6,6 +7,7 @@ import { VoiceController } from './services/voiceController';
 import { AppState, HandRegistrationData } from './types';
 
 function App() {
+  const [showLanding, setShowLanding] = useState(true);
   const [appState, setAppState] = useState<AppState>({
     isHandsRegistered: false,
     isCameraActive: false,
@@ -69,8 +71,12 @@ function App() {
     }));
   }, []);
 
+  const handleEnterDemo = () => {
+    setShowLanding(false);
+  };
+
   useEffect(() => {
-    if (appState.isHandsRegistered && !controllersInitialized.current) {
+    if (!showLanding && appState.isHandsRegistered && !controllersInitialized.current) {
       controllersInitialized.current = true;
       
       voiceControllerRef.current = new VoiceController(handleVoiceCommand);
@@ -90,7 +96,7 @@ function App() {
       }
       controllersInitialized.current = false;
     };
-  }, [appState.isHandsRegistered, handleGestureEvent, handleVoiceCommand]);
+  }, [showLanding, appState.isHandsRegistered, handleGestureEvent, handleVoiceCommand]);
 
   useEffect(() => {
     if (gestureControllerRef.current) {
@@ -101,6 +107,10 @@ function App() {
       }
     }
   }, [appState.isCameraActive]);
+
+  if (showLanding) {
+    return <LandingPage onEnterDemo={handleEnterDemo} />;
+  }
 
   return (
     <div className="app-container">

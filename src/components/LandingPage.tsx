@@ -1,0 +1,253 @@
+import { useState, useEffect } from 'react';
+import './LandingPage.css';
+
+interface Props {
+  onEnterDemo: () => void;
+}
+
+export default function LandingPage({ onEnterDemo }: Props) {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div className="landing-page">
+      <nav className="apple-nav">
+        <div className="nav-content">
+          <a href="#" className="nav-logo">Holo AI</a>
+          <div className="nav-links">
+            <a href="#features">Features</a>
+            <a href="#modules">Modules</a>
+            <a href="#demo">Demo</a>
+            <a href="#about">About</a>
+          </div>
+          <button className="nav-cta" onClick={onEnterDemo}>Try Demo</button>
+        </div>
+      </nav>
+
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            <span className="title-line">The Future of</span>
+            <span className="title-line gradient-text">Human-Computer</span>
+            <span className="title-line gradient-text">Interaction</span>
+          </h1>
+          <p className="hero-subtitle">
+            AI-Driven Multimodal Holographic Interface. Gesture control. Voice commands. 
+            Zero physical contact. Pure innovation.
+          </p>
+          <div className="hero-buttons">
+            <button className="btn-primary" onClick={onEnterDemo}>
+              Experience Demo
+            </button>
+            <a href="#features" className="btn-secondary">
+              Learn More
+            </a>
+          </div>
+        </div>
+        <div className="hero-visual">
+          <div className="holo-sphere">
+            <div className="sphere-ring ring-1"></div>
+            <div className="sphere-ring ring-2"></div>
+            <div className="sphere-ring ring-3"></div>
+            <div className="sphere-core">AI</div>
+          </div>
+        </div>
+        <div className="scroll-indicator">
+          <span>Scroll to explore</span>
+          <div className="scroll-arrow"></div>
+        </div>
+      </section>
+
+      <section id="features" className="features-section">
+        <div className="section-header">
+          <h2>Revolutionary Interaction</h2>
+          <p>Experience computing without boundaries</p>
+        </div>
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 1 1 3 0m-3 6a1.5 1.5 0 1 0-3 0v2a6 6 0 0 0 12 0v-5.5a1.5 1.5 0 0 0-3 0m-3-3.5V14m0-9.5v0a1.5 1.5 0 1 1 3 0v9.5" />
+              </svg>
+            </div>
+            <h3>Gesture Control</h3>
+            <p>Navigate seamlessly with natural hand movements. Point, pinch, and interact without touching any surface.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                <line x1="12" y1="19" x2="12" y2="23" />
+                <line x1="8" y1="23" x2="16" y2="23" />
+              </svg>
+            </div>
+            <h3>Voice Commands</h3>
+            <p>Speak naturally and let AI understand. Advanced speech recognition for hands-free operation.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <h3>Holographic UI</h3>
+            <p>Floating 3D interfaces that respond to your every move. A futuristic visual experience.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h3>Contactless Security</h3>
+            <p>Hand registration system ensures only you can access the interface. Secure and hygienic.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="stats-section">
+        <div className="stats-grid">
+          <div className="stat-item">
+            <span className="stat-number">30</span>
+            <span className="stat-label">FPS Gesture Detection</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">5</span>
+            <span className="stat-label">Integrated Apps</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">21</span>
+            <span className="stat-label">Hand Landmarks</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">&lt;200</span>
+            <span className="stat-label">ms Voice Latency</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="modules" className="modules-section">
+        <div className="section-header">
+          <h2>Five Powerful Modules</h2>
+          <p>A complete multimodal interaction ecosystem</p>
+        </div>
+        <div className="modules-list">
+          <div className="module-item">
+            <div className="module-number">01</div>
+            <div className="module-content">
+              <h3>Gesture Detection System</h3>
+              <p>Powered by MediaPipe AI for real-time hand tracking. Detects pinch, point, and fist gestures with high accuracy.</p>
+            </div>
+          </div>
+          <div className="module-item">
+            <div className="module-number">02</div>
+            <div className="module-content">
+              <h3>Voice Command System</h3>
+              <p>Natural language processing with Web Speech API. Continuous listening mode with text-to-speech feedback.</p>
+            </div>
+          </div>
+          <div className="module-item">
+            <div className="module-number">03</div>
+            <div className="module-content">
+              <h3>Holographic UI Simulation</h3>
+              <p>Floating 3D-like interfaces with glassmorphism design. 60fps smooth animations and depth effects.</p>
+            </div>
+          </div>
+          <div className="module-item">
+            <div className="module-number">04</div>
+            <div className="module-content">
+              <h3>Interaction Engine</h3>
+              <p>Intelligent mapping of multimodal inputs to UI actions. Seamless fusion of gesture and voice commands.</p>
+            </div>
+          </div>
+          <div className="module-item">
+            <div className="module-number">05</div>
+            <div className="module-content">
+              <h3>System Dashboard</h3>
+              <p>Real-time monitoring of system status, performance metrics, and configuration controls.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" className="demo-section">
+        <div className="demo-content">
+          <div className="demo-text">
+            <h2>Experience the Future</h2>
+            <p>Step into a world where technology responds to your natural movements. Our holographic interface transforms how you interact with digital systems.</p>
+            <ul className="demo-features">
+              <li>Point and pinch to navigate</li>
+              <li>Voice commands for hands-free control</li>
+              <li>6 built-in applications</li>
+              <li>Real-time hand skeleton tracking</li>
+            </ul>
+            <button className="btn-primary large" onClick={onEnterDemo}>
+              Launch Interactive Demo
+            </button>
+          </div>
+          <div className="demo-preview">
+            <div className="preview-frame">
+              <div className="preview-screen">
+                <div className="preview-dock">
+                  <span>🤖</span>
+                  <span>🌤️</span>
+                  <span>🔢</span>
+                  <span>📝</span>
+                  <span>🎵</span>
+                  <span>⚙️</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="about-section">
+        <div className="about-content">
+          <div className="about-badge">Academic Project</div>
+          <h2>AI-Driven Multimodal Holographic Human-Computer Interaction System</h2>
+          <div className="about-details">
+            <div className="detail-item">
+              <span className="detail-label">Course</span>
+              <span className="detail-value">B.Tech CSE AI ML DL</span>
+            </div>
+            <div className="detail-item">
+              <span className="detail-label">Domain</span>
+              <span className="detail-value">Artificial Intelligence, Computer Vision, HCI</span>
+            </div>
+            <div className="detail-item">
+              <span className="detail-label">Technologies</span>
+              <span className="detail-value">React, TypeScript, MediaPipe, Web Speech API</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="apple-footer">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <span className="footer-logo">Holo AI</span>
+            <p>AI-Driven Multimodal Holographic Interface</p>
+          </div>
+          <div className="footer-links">
+            <a href="#features">Features</a>
+            <a href="#modules">Modules</a>
+            <a href="#demo">Demo</a>
+            <a href="#about">About</a>
+          </div>
+          <div className="footer-copyright">
+            <p>B.Tech CSE AI ML DL Project</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
