@@ -15,6 +15,7 @@ interface Props {
   appState: AppState;
   setAppState: Dispatch<SetStateAction<AppState>>;
   voiceController: VoiceController | null;
+  onExit: () => void;
 }
 
 const GestureIcon = () => (
@@ -27,11 +28,23 @@ const GestureIcon = () => (
   </svg>
 );
 
-export default function MainInterface({ appState, setAppState, voiceController }: Props) {
+export default function MainInterface({ appState, setAppState, voiceController, onExit }: Props) {
   const cameraRef = useRef<HTMLVideoElement>(null);
   const [cameraReady, setCameraReady] = useState(false);
 
   useEffect(() => {
+    if (!appState.isCameraActive) {
+      setCameraReady(false);
+      if (cameraRef.current && cameraRef.current.srcObject) {
+        const tracks = (cameraRef.current.srcObject as MediaStream).getTracks();
+        tracks.forEach(track => track.stop());
+        cameraRef.current.srcObject = null;
+      }
+      return;
+    }
+
+    let cancelled = false;
+
     if (cameraRef.current) {
       navigator.mediaDevices.getUserMedia({ 
         video: { 
@@ -41,6 +54,10 @@ export default function MainInterface({ appState, setAppState, voiceController }
         } 
       })
         .then(stream => {
+          if (cancelled) {
+            stream.getTracks().forEach(track => track.stop());
+            return;
+          }
           if (cameraRef.current) {
             cameraRef.current.srcObject = stream;
             setCameraReady(true);
@@ -52,12 +69,14 @@ export default function MainInterface({ appState, setAppState, voiceController }
     }
 
     return () => {
+      cancelled = true;
       if (cameraRef.current && cameraRef.current.srcObject) {
         const tracks = (cameraRef.current.srcObject as MediaStream).getTracks();
         tracks.forEach(track => track.stop());
+        cameraRef.current.srcObject = null;
       }
     };
-  }, []);
+  }, [appState.isCameraActive]);
 
   const handleAppSelect = (appId: string) => {
     setAppState(prev => ({ ...prev, activeApp: appId }));
@@ -122,7 +141,7 @@ export default function MainInterface({ appState, setAppState, voiceController }
       
       <div className="holographic-grid" />
       
-      <StatusBar appState={appState} onOpenDashboard={handleOpenDashboard} />
+      <StatusBar appState={appState} onOpenDashboard={handleOpenDashboard} onExit={onExit} />
       
       <div className="content-area">
         {!appState.activeApp && (

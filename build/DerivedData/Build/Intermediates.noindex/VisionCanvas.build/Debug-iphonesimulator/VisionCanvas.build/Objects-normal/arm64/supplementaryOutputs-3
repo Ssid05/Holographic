@@ -1,0 +1,23 @@
+{
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Components/WindowChrome.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WindowChrome.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WindowChrome.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WindowChrome.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WindowChrome.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WindowChrome.swiftdeps"
+  },
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Models/AppType.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/AppType.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/AppType.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/AppType.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/AppType.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/AppType.swiftdeps"
+  },
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Models/WeatherState.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherState.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherState.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherState.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherState.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherState.swiftdeps"
+  }
+}

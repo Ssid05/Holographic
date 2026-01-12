@@ -1,0 +1,16 @@
+{
+  "source": "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Views/MainInterfaceView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Confidence %lld%%",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 82
+        }
+      }
+    ]
+  },
+  "version": 1
+}

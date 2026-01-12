@@ -1,0 +1,48 @@
+{
+  "source": "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Views/StatusBarView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Vision Canvas",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 13
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 23
+        }
+      },
+      {
+        "comment": "",
+        "key": "Demo Mode",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "Calm Mode",
+        "location": {
+          "startingColumn": 57,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "End",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 31
+        }
+      }
+    ]
+  },
+  "version": 1
+}

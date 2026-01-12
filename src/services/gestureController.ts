@@ -15,6 +15,9 @@ export class GestureController {
   private lastFistTime: number = 0;
   private bothHandsFist: boolean = false;
   private selectedIndex: number = -1;
+  private tapTimes: number[] = [];
+  private readonly tapDurationMs = 250;
+  private readonly tapWindowMs = 900;
 
   constructor(callback: GestureCallback) {
     this.callback = callback;
@@ -73,6 +76,11 @@ export class GestureController {
       this.camera.stop();
       this.camera = null;
     }
+    if (this.videoElement && this.videoElement.srcObject) {
+      const tracks = (this.videoElement.srcObject as MediaStream).getTracks();
+      tracks.forEach(track => track.stop());
+      this.videoElement.srcObject = null;
+    }
     if (this.hands) {
       this.hands.close();
       this.hands = null;
@@ -121,11 +129,15 @@ export class GestureController {
       } else if (!isPinching && this.isPinching) {
         const pinchDuration = now - this.pinchStartTime;
         this.isPinching = false;
-        
-        if (pinchDuration >= 2000) {
+
+        if (pinchDuration < this.tapDurationMs) {
+          this.handleTap(now);
+        } else if (pinchDuration >= 2000) {
           this.callback('close', {});
+          this.tapTimes = [];
         } else if (pinchDuration >= 1000) {
           this.callback('select', { index: this.selectedIndex });
+          this.tapTimes = [];
         }
       }
     }
@@ -197,6 +209,25 @@ export class GestureController {
     }
     
     return closedFingers >= 3;
+  }
+
+  private handleTap(timestamp: number) {
+    // Keep taps within a rolling window for multi-tap detection
+    this.tapTimes.push(timestamp);
+    this.tapTimes = this.tapTimes.filter(t => timestamp - t <= this.tapWindowMs);
+
+    const tapCount = this.tapTimes.length;
+
+    if (tapCount >= 3) {
+      this.callback('close', {});
+      this.tapTimes = [];
+      return;
+    }
+
+    if (tapCount >= 2) {
+      this.callback('select', { index: this.selectedIndex });
+      // Keep taps so a rapid third tap can still register close
+    }
   }
 
   private playPinchSound() {

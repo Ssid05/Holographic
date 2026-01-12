@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+	200100000000000000000001 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100100000000000000000001 /* AppViewModel.swift */; };
+	200200000000000000000002 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100200000000000000000002 /* RootView.swift */; };
+	200300000000000000000003 /* VisionCanvasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100300000000000000000003 /* VisionCanvasApp.swift */; };
+	200400000000000000000004 /* ParticleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100400000000000000000004 /* ParticleBackground.swift */; };
+	200500000000000000000005 /* GlassEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100500000000000000000005 /* GlassEffect.swift */; };
+	200600000000000000000006 /* MotionParallax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100600000000000000000006 /* MotionParallax.swift */; };
+	200700000000000000000007 /* WindowChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100700000000000000000007 /* WindowChrome.swift */; };
+	200800000000000000000008 /* AppType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100800000000000000000008 /* AppType.swift */; };
+	200900000000000000000009 /* WeatherState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100900000000000000000009 /* WeatherState.swift */; };
+	201000000000000000000010 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101000000000000000000010 /* WeatherService.swift */; };
+	201100000000000000000011 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101100000000000000000011 /* LocationService.swift */; };
+	201200000000000000000012 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101200000000000000000012 /* WeatherViewModel.swift */; };
+	201300000000000000000013 /* MainInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101300000000000000000013 /* MainInterfaceView.swift */; };
+	201400000000000000000014 /* DockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101400000000000000000014 /* DockView.swift */; };
+	201500000000000000000015 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101500000000000000000015 /* StatusBarView.swift */; };
+	201600000000000000000016 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101600000000000000000016 /* Theme.swift */; };
+	201700000000000000000017 /* WeatherAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101700000000000000000017 /* WeatherAppView.swift */; };
+	201800000000000000000018 /* NotesAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101800000000000000000018 /* NotesAppView.swift */; };
+	201900000000000000000019 /* MusicAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101900000000000000000019 /* MusicAppView.swift */; };
+	202000000000000000000020 /* CalculatorAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102000000000000000000020 /* CalculatorAppView.swift */; };
+	202100000000000000000021 /* AssistantAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102100000000000000000021 /* AssistantAppView.swift */; };
+	202200000000000000000022 /* DashboardAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102200000000000000000022 /* DashboardAppView.swift */; };
+	202300000000000000000023 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102300000000000000000023 /* LandingView.swift */; };
+	202400000000000000000024 /* AirCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102400000000000000000024 /* AirCommand.swift */; };
+	202500000000000000000025 /* HandGestureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101300000000000000000024 /* HandGestureService.swift */; };
+	400100000000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 300200000000000000000002 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+	00000000000000000000000D /* VisionCanvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionCanvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+	100100000000000000000001 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+	100200000000000000000002 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+	100300000000000000000003 /* VisionCanvasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionCanvasApp.swift; sourceTree = "<group>"; };
+	100400000000000000000004 /* ParticleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleBackground.swift; sourceTree = "<group>"; };
+	100500000000000000000005 /* GlassEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassEffect.swift; sourceTree = "<group>"; };
+	100600000000000000000006 /* MotionParallax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionParallax.swift; sourceTree = "<group>"; };
+	100700000000000000000007 /* WindowChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowChrome.swift; sourceTree = "<group>"; };
+	100800000000000000000008 /* AppType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppType.swift; sourceTree = "<group>"; };
+	100900000000000000000009 /* WeatherState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherState.swift; sourceTree = "<group>"; };
+	101000000000000000000010 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+	101100000000000000000011 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+	101200000000000000000012 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+	101300000000000000000013 /* MainInterfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceView.swift; sourceTree = "<group>"; };
+	101400000000000000000014 /* DockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockView.swift; sourceTree = "<group>"; };
+	101500000000000000000015 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
+	101600000000000000000016 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+	101700000000000000000017 /* WeatherAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppView.swift; sourceTree = "<group>"; };
+	101800000000000000000018 /* NotesAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesAppView.swift; sourceTree = "<group>"; };
+	101900000000000000000019 /* MusicAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAppView.swift; sourceTree = "<group>"; };
+	102000000000000000000020 /* CalculatorAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorAppView.swift; sourceTree = "<group>"; };
+	102100000000000000000021 /* AssistantAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantAppView.swift; sourceTree = "<group>"; };
+	102200000000000000000022 /* DashboardAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardAppView.swift; sourceTree = "<group>"; };
+	102300000000000000000023 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+	102400000000000000000024 /* AirCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirCommand.swift; sourceTree = "<group>"; };
+	101300000000000000000024 /* HandGestureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandGestureService.swift; sourceTree = "<group>"; };
+	300100000000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+	300200000000000000000002 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+	000000000000000000000005 /* Frameworks */ = {
+		isa = PBXFrameworksBuildPhase;
+		buildActionMask = 2147483647;
+		files = (
+		);
+		runOnlyForDeploymentPostprocessing = 0;
+	};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+	000000000000000000000002 = {
+		isa = PBXGroup;
+		children = (
+			500100000000000000000001 /* App */,
+			500200000000000000000002 /* Components */,
+			500300000000000000000003 /* Models */,
+			500400000000000000000004 /* ViewModels */,
+			500500000000000000000005 /* Services */,
+			500600000000000000000006 /* Views */,
+			500700000000000000000007 /* Resources */,
+			500800000000000000000008 /* Assets */,
+			00000000000000000000000E /* Products */
+		);
+		sourceTree = "<group>";
+	};
+	00000000000000000000000E /* Products */ = {
+		isa = PBXGroup;
+		children = (
+			00000000000000000000000D /* VisionCanvas.app */,
+		);
+		name = Products;
+		sourceTree = "<group>";
+	};
+	500100000000000000000001 /* App */ = {
+		isa = PBXGroup;
+		children = (
+			100300000000000000000003 /* VisionCanvasApp.swift */,
+			100200000000000000000002 /* RootView.swift */,
+			100100000000000000000001 /* AppViewModel.swift */,
+		);
+		name = App;
+		path = App;
+		sourceTree = "<group>";
+	};
+	500200000000000000000002 /* Components */ = {
+		isa = PBXGroup;
+		children = (
+			100500000000000000000005 /* GlassEffect.swift */,
+			100400000000000000000004 /* ParticleBackground.swift */,
+			100600000000000000000006 /* MotionParallax.swift */,
+			100700000000000000000007 /* WindowChrome.swift */,
+		);
+		name = Components;
+		path = Components;
+		sourceTree = "<group>";
+	};
+	500300000000000000000003 /* Models */ = {
+		isa = PBXGroup;
+		children = (
+			100800000000000000000008 /* AppType.swift */,
+			100900000000000000000009 /* WeatherState.swift */,
+			102400000000000000000024 /* AirCommand.swift */,
+		);
+		name = Models;
+		path = Models;
+		sourceTree = "<group>";
+	};
+	500400000000000000000004 /* ViewModels */ = {
+		isa = PBXGroup;
+		children = (
+			101200000000000000000012 /* WeatherViewModel.swift */,
+		);
+		name = ViewModels;
+		path = ViewModels;
+		sourceTree = "<group>";
+	};
+	500500000000000000000005 /* Services */ = {
+		isa = PBXGroup;
+		children = (
+			101000000000000000000010 /* WeatherService.swift */,
+			101100000000000000000011 /* LocationService.swift */,
+			101300000000000000000024 /* HandGestureService.swift */,
+		);
+		name = Services;
+		path = Services;
+		sourceTree = "<group>";
+	};
+	500600000000000000000006 /* Views */ = {
+		isa = PBXGroup;
+		children = (
+			101300000000000000000013 /* MainInterfaceView.swift */,
+			101400000000000000000014 /* DockView.swift */,
+			101500000000000000000015 /* StatusBarView.swift */,
+			101600000000000000000016 /* Theme.swift */,
+			101700000000000000000017 /* WeatherAppView.swift */,
+			101800000000000000000018 /* NotesAppView.swift */,
+			101900000000000000000019 /* MusicAppView.swift */,
+			102000000000000000000020 /* CalculatorAppView.swift */,
+			102100000000000000000021 /* AssistantAppView.swift */,
+			102200000000000000000022 /* DashboardAppView.swift */,
+			102300000000000000000023 /* LandingView.swift */,
+		);
+		name = Views;
+		path = Views;
+		sourceTree = "<group>";
+	};
+	500700000000000000000007 /* Resources */ = {
+		isa = PBXGroup;
+		children = (
+			300100000000000000000001 /* Info.plist */,
+		);
+		name = Resources;
+		path = Resources;
+		sourceTree = "<group>";
+	};
+	500800000000000000000008 /* Assets */ = {
+		isa = PBXGroup;
+		children = (
+			300200000000000000000002 /* Assets.xcassets */,
+		);
+		name = Assets;
+		path = "";
+		sourceTree = "<group>";
+	};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+	000000000000000000000003 /* VisionCanvas */ = {
+		isa = PBXNativeTarget;
+		buildConfigurationList = 00000000000000000000000A /* Build configuration list for PBXNativeTarget "VisionCanvas" */;
+		buildPhases = (
+			000000000000000000000004 /* Sources */,
+			000000000000000000000005 /* Frameworks */,
+			000000000000000000000006 /* Resources */,
+		);
+		buildRules = (
+		);
+		dependencies = (
+		);
+		name = VisionCanvas;
+		productName = VisionCanvas;
+		productReference = 00000000000000000000000D /* VisionCanvas.app */;
+		productType = "com.apple.product-type.application";
+	};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+	000000000000000000000001 /* Project object */ = {
+		isa = PBXProject;
+		attributes = {
+			LastSwiftUpdateCheck = 1500;
+			LastUpgradeCheck = 1500;
+			TargetAttributes = {
+				000000000000000000000003 = {
+					DevelopmentTeam = "";
+				};
+			};
+		};
+		buildConfigurationList = 000000000000000000000007 /* Build configuration list for PBXProject "VisionCanvas" */;
+		compatibilityVersion = "Xcode 14.0";
+		developmentRegion = en;
+		hasScannedForEncodings = 0;
+		knownRegions = (
+			en,
+		);
+		mainGroup = 000000000000000000000002;
+		productRefGroup = 00000000000000000000000E /* Products */;
+		projectDirPath = "";
+		projectRoot = "";
+		targets = (
+			000000000000000000000003 /* VisionCanvas */,
+		);
+	};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+	000000000000000000000006 /* Resources */ = {
+		isa = PBXResourcesBuildPhase;
+		buildActionMask = 2147483647;
+		files = (
+			400100000000000000000001 /* Assets.xcassets in Resources */,
+		);
+		runOnlyForDeploymentPostprocessing = 0;
+	};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+	000000000000000000000004 /* Sources */ = {
+		isa = PBXSourcesBuildPhase;
+		buildActionMask = 2147483647;
+		files = (
+			200100000000000000000001 /* AppViewModel.swift in Sources */,
+			200200000000000000000002 /* RootView.swift in Sources */,
+			200300000000000000000003 /* VisionCanvasApp.swift in Sources */,
+			200400000000000000000004 /* ParticleBackground.swift in Sources */,
+			200500000000000000000005 /* GlassEffect.swift in Sources */,
+			200600000000000000000006 /* MotionParallax.swift in Sources */,
+			200700000000000000000007 /* WindowChrome.swift in Sources */,
+			200800000000000000000008 /* AppType.swift in Sources */,
+			200900000000000000000009 /* WeatherState.swift in Sources */,
+			202400000000000000000024 /* AirCommand.swift in Sources */,
+			201000000000000000000010 /* WeatherService.swift in Sources */,
+			201100000000000000000011 /* LocationService.swift in Sources */,
+			202500000000000000000025 /* HandGestureService.swift in Sources */,
+			201200000000000000000012 /* WeatherViewModel.swift in Sources */,
+			201300000000000000000013 /* MainInterfaceView.swift in Sources */,
+			201400000000000000000014 /* DockView.swift in Sources */,
+			201500000000000000000015 /* StatusBarView.swift in Sources */,
+			201600000000000000000016 /* Theme.swift in Sources */,
+			201700000000000000000017 /* WeatherAppView.swift in Sources */,
+			201800000000000000000018 /* NotesAppView.swift in Sources */,
+			201900000000000000000019 /* MusicAppView.swift in Sources */,
+			202000000000000000000020 /* CalculatorAppView.swift in Sources */,
+			202100000000000000000021 /* AssistantAppView.swift in Sources */,
+			202200000000000000000022 /* DashboardAppView.swift in Sources */,
+			202300000000000000000023 /* LandingView.swift in Sources */,
+		);
+		runOnlyForDeploymentPostprocessing = 0;
+	};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+	000000000000000000000008 /* Debug */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ALWAYS_SEARCH_USER_PATHS = NO;
+			CLANG_ANALYZER_NONNULL = YES;
+			CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+			CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+			CLANG_ENABLE_OBJC_ARC = YES;
+			CLANG_ENABLE_MODULES = YES;
+			CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+			CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+			COPY_PHASE_STRIP = NO;
+			DEBUG_INFORMATION_FORMAT = dwarf;
+			ENABLE_STRICT_OBJC_MSGSEND = YES;
+			ENABLE_TESTABILITY = YES;
+			GCC_C_LANGUAGE_STANDARD = gnu11;
+			GCC_DYNAMIC_NO_PIC = NO;
+			GCC_NO_COMMON_BLOCKS = YES;
+			GCC_OPTIMIZATION_LEVEL = 0;
+			GCC_PREPROCESSOR_DEFINITIONS = (
+				"DEBUG=1",
+				"$(inherited)",
+			);
+			GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+			MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+			ONLY_ACTIVE_ARCH = YES;
+			SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+			SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+		};
+		name = Debug;
+	};
+	000000000000000000000009 /* Release */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ALWAYS_SEARCH_USER_PATHS = NO;
+			CLANG_ANALYZER_NONNULL = YES;
+			CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+			CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+			CLANG_ENABLE_OBJC_ARC = YES;
+			CLANG_ENABLE_MODULES = YES;
+			CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+			CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+			COPY_PHASE_STRIP = NO;
+			DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+			ENABLE_NS_ASSERTIONS = NO;
+			ENABLE_STRICT_OBJC_MSGSEND = YES;
+			GCC_C_LANGUAGE_STANDARD = gnu11;
+			GCC_NO_COMMON_BLOCKS = YES;
+			GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+			MTL_ENABLE_DEBUG_INFO = NO;
+			SWIFT_COMPILATION_MODE = wholemodule;
+		};
+		name = Release;
+	};
+	00000000000000000000000B /* Debug */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+			CODE_SIGN_STYLE = Automatic;
+			CURRENT_PROJECT_VERSION = 1;
+			DEVELOPMENT_TEAM = "";
+			GENERATE_INFOPLIST_FILE = NO;
+			INFOPLIST_FILE = Resources/Info.plist;
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+			MARKETING_VERSION = 1.0;
+			PRODUCT_BUNDLE_IDENTIFIER = com.example.VisionCanvas;
+			PRODUCT_NAME = "$(TARGET_NAME)";
+			SDKROOT = iphoneos;
+			SUPPORTS_MACCATALYST = NO;
+			SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+			SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			SWIFT_EMIT_LOC_STRINGS = YES;
+			SWIFT_VERSION = 5.9;
+			TARGETED_DEVICE_FAMILY = "1,2";
+		};
+		name = Debug;
+	};
+	00000000000000000000000C /* Release */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+			CODE_SIGN_STYLE = Automatic;
+			CURRENT_PROJECT_VERSION = 1;
+			DEVELOPMENT_TEAM = "";
+			GENERATE_INFOPLIST_FILE = NO;
+			INFOPLIST_FILE = Resources/Info.plist;
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+			MARKETING_VERSION = 1.0;
+			PRODUCT_BUNDLE_IDENTIFIER = com.example.VisionCanvas;
+			PRODUCT_NAME = "$(TARGET_NAME)";
+			SDKROOT = iphoneos;
+			SUPPORTS_MACCATALYST = NO;
+			SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+			SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			SWIFT_EMIT_LOC_STRINGS = YES;
+			SWIFT_VERSION = 5.9;
+			TARGETED_DEVICE_FAMILY = "1,2";
+		};
+		name = Release;
+	};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+	000000000000000000000007 /* Build configuration list for PBXProject "VisionCanvas" */ = {
+		isa = XCConfigurationList;
+		buildConfigurations = (
+			000000000000000000000008 /* Debug */,
+			000000000000000000000009 /* Release */,
+		);
+		defaultConfigurationIsVisible = 0;
+		defaultConfigurationName = Release;
+	};
+	00000000000000000000000A /* Build configuration list for PBXNativeTarget "VisionCanvas" */ = {
+		isa = XCConfigurationList;
+		buildConfigurations = (
+			00000000000000000000000B /* Debug */,
+			00000000000000000000000C /* Release */,
+		);
+		defaultConfigurationIsVisible = 0;
+		defaultConfigurationName = Release;
+	};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 000000000000000000000001 /* Project object */;
+}

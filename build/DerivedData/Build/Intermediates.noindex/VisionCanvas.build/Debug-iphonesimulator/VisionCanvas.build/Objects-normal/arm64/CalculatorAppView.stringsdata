@@ -1,0 +1,16 @@
+{
+  "source": "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Views/CalculatorAppView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Calculator",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 11
+        }
+      }
+    ]
+  },
+  "version": 1
+}

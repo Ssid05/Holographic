@@ -1,0 +1,16 @@
+{
+  "source": "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Views/DashboardAppView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Dashboard",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 6
+        }
+      }
+    ]
+  },
+  "version": 1
+}

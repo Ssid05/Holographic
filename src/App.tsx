@@ -6,16 +6,18 @@ import { GestureController } from './services/gestureController';
 import { VoiceController } from './services/voiceController';
 import { AppState, HandRegistrationData } from './types';
 
+const initialAppState: AppState = {
+  isHandsRegistered: false,
+  isCameraActive: false,
+  activeApp: null,
+  selectedDockIndex: -1,
+  isListening: false,
+  voiceText: '',
+};
+
 function App() {
   const [showLanding, setShowLanding] = useState(true);
-  const [appState, setAppState] = useState<AppState>({
-    isHandsRegistered: false,
-    isCameraActive: false,
-    activeApp: null,
-    selectedDockIndex: -1,
-    isListening: false,
-    voiceText: '',
-  });
+  const [appState, setAppState] = useState<AppState>(initialAppState);
 
   const [handData, setHandData] = useState<HandRegistrationData | null>(null);
   const gestureControllerRef = useRef<GestureController | null>(null);
@@ -73,7 +75,6 @@ function App() {
 
   const handleEnterDemo = () => {
     setShowLanding(false);
-    document.body.classList.add('no-scroll');
     // Skip registration entirely - go directly to holographic interface
     setAppState(prev => ({
       ...prev,
@@ -89,6 +90,50 @@ function App() {
       timestamp: Date.now()
     });
   };
+
+  const handleExitDemo = useCallback(() => {
+    document.body.classList.remove('no-scroll');
+
+    if (gestureControllerRef.current) {
+      gestureControllerRef.current.stop();
+      gestureControllerRef.current = null;
+    }
+
+    if (voiceControllerRef.current) {
+      voiceControllerRef.current.stopListening();
+      voiceControllerRef.current = null;
+    }
+
+    controllersInitialized.current = false;
+    setAppState({ ...initialAppState });
+    setHandData(null);
+    setShowLanding(true);
+    stopAllMediaStreams();
+  }, []);
+
+  useEffect(() => {
+    if (showLanding) {
+      document.body.classList.remove('no-scroll');
+      // Ensure hardware is off when back on landing
+      if (gestureControllerRef.current) {
+        gestureControllerRef.current.stop();
+        gestureControllerRef.current = null;
+      }
+      if (voiceControllerRef.current) {
+        voiceControllerRef.current.stopListening();
+        voiceControllerRef.current = null;
+      }
+      controllersInitialized.current = false;
+      setAppState(prev => ({ ...prev, isCameraActive: false, activeApp: null, selectedDockIndex: -1 }));
+      stopAllMediaStreams();
+    } else {
+      document.body.classList.add('no-scroll');
+    }
+
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, [showLanding]);
 
   useEffect(() => {
     if (!showLanding && appState.isHandsRegistered && !controllersInitialized.current) {
@@ -123,6 +168,17 @@ function App() {
     }
   }, [appState.isCameraActive]);
 
+  const stopAllMediaStreams = () => {
+    const videos = Array.from(document.querySelectorAll('video')) as HTMLVideoElement[];
+    videos.forEach(video => {
+      const src = video.srcObject as MediaStream | null;
+      if (src) {
+        src.getTracks().forEach(track => track.stop());
+        video.srcObject = null;
+      }
+    });
+  };
+
   if (showLanding) {
     return <LandingPage onEnterDemo={handleEnterDemo} />;
   }
@@ -139,6 +195,7 @@ function App() {
           appState={appState}
           setAppState={setAppState}
           voiceController={voiceControllerRef.current}
+          onExit={handleExitDemo}
         />
       )}
     </div>

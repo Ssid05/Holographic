@@ -4,11 +4,23 @@ import './StatusBar.css';
 interface Props {
   appState: AppState;
   onOpenDashboard: () => void;
+  onExit: () => void;
 }
 
-export default function StatusBar({ appState, onOpenDashboard }: Props) {
+export default function StatusBar({ appState, onOpenDashboard, onExit }: Props) {
   return (
     <div className="status-bar">
+      <button className="status-pill exit-pill" onClick={onExit}>
+        <span className="pill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M10 6L4 12L10 18" />
+            <path d="M4 12H16" />
+            <path d="M16 6H20V18H16" />
+          </svg>
+        </span>
+        <span className="pill-label">End Demo</span>
+      </button>
+
       <div className="status-indicator">
         <div className={`status-dot ${appState.isCameraActive ? '' : 'inactive'}`} />
         <span>Camera {appState.isCameraActive ? 'Active' : 'Off'}</span>

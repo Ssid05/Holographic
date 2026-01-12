@@ -1,0 +1,23 @@
+{
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Views/DockView.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/DockView.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/DockView.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/DockView.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/DockView.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/DockView.swiftdeps"
+  },
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Views/StatusBarView.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/StatusBarView.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/StatusBarView.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/StatusBarView.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/StatusBarView.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/StatusBarView.swiftdeps"
+  },
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Views/Theme.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/Theme.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/Theme.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/Theme.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/Theme.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/Theme.swiftdeps"
+  }
+}

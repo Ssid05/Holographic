@@ -1,0 +1,23 @@
+{
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Services/HandGestureService.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/HandGestureService.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/HandGestureService.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/HandGestureService.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/HandGestureService.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/HandGestureService.swiftdeps"
+  },
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/ViewModels/WeatherViewModel.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherViewModel.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherViewModel.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherViewModel.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherViewModel.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherViewModel.swiftdeps"
+  },
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Views/MainInterfaceView.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/MainInterfaceView.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/MainInterfaceView.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/MainInterfaceView.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/MainInterfaceView.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/MainInterfaceView.swiftdeps"
+  }
+}

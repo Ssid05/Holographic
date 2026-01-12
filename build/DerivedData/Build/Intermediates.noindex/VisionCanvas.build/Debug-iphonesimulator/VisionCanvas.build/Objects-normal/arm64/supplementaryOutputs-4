@@ -1,0 +1,23 @@
+{
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Models/AirCommand.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/AirCommand.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/AirCommand.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/AirCommand.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/AirCommand.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/AirCommand.swiftdeps"
+  },
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Services/LocationService.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/LocationService.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/LocationService.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/LocationService.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/LocationService.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/LocationService.swiftdeps"
+  },
+  "/Users/mymac/Downloads/Vision-Canvas/VisionCanvasNative/Services/WeatherService.swift" : {
+    "const-values" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherService.swiftconstvalues",
+    "dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherService.d",
+    "diagnostics" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherService.dia",
+    "object" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherService.o",
+    "swift-dependencies" : "/Users/mymac/Downloads/Vision-Canvas/build/DerivedData/Build/Intermediates.noindex/VisionCanvas.build/Debug-iphonesimulator/VisionCanvas.build/Objects-normal/arm64/WeatherService.swiftdeps"
+  }
+}

@@ -47,14 +47,11 @@ export default function WeatherApp({ onClose, voiceController }: Props) {
       if (!response.ok) throw new Error('Weather data unavailable');
       
       const data = await response.json();
-      
-      const locationResponse = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
-      );
-      const locationData = await locationResponse.json();
+
+      const locationLabel = await resolveLocationName(latitude, longitude);
       
       const weatherData: WeatherData = {
-        location: locationData.address?.city || locationData.address?.town || locationData.address?.village || 'Your Location',
+        location: locationLabel,
         temperature: Math.round(data.current.temperature_2m),
         condition: getWeatherCondition(data.current.weather_code),
         humidity: data.current.relative_humidity_2m,
@@ -63,14 +60,11 @@ export default function WeatherApp({ onClose, voiceController }: Props) {
       };
       
       setWeather(weatherData);
-      
-      if (voiceController) {
-        const speech = `Current weather in ${weatherData.location}: ${weatherData.temperature} degrees Celsius, ${weatherData.condition}. It feels like ${weatherData.feelsLike} degrees.`;
-        voiceController.speak(speech);
-      }
     } catch (err: any) {
-      if (err.code === 1) {
-        setError('Location access denied. Please enable location services.');
+      if (err?.code === 1) {
+        setError('Location access denied. Please allow location to show local weather.');
+      } else if (err?.code === 2 || err?.code === 3) {
+        setError('Location unavailable. Please try again.');
       } else {
         setError('Unable to get weather data. Please try again.');
       }
@@ -115,6 +109,71 @@ export default function WeatherApp({ onClose, voiceController }: Props) {
     return '🌤️';
   };
 
+  const resolveLocationName = async (latitude: number, longitude: number): Promise<string> => {
+    // Snap nearby locations to Moradabad if within ~40km to avoid Amroha mislabel
+    const snapped = snapToMoradabad(latitude, longitude);
+    if (snapped) return snapped;
+
+    // Try Open-Meteo reverse geocoding first (fast, no key)
+    try {
+      const geoRes = await fetch(
+        `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${latitude}&longitude=${longitude}&language=en&count=1`
+      );
+      if (geoRes.ok) {
+        const geoData = await geoRes.json();
+        const place = geoData?.results?.[0];
+        if (place) {
+          const city = place.name;
+          const admin = place.admin1;
+          const country = place.country_code?.toUpperCase();
+          if (city && admin) return `${city}, ${admin}${country ? ' ' + country : ''}`;
+          if (city && country) return `${city}, ${country}`;
+          if (city) return city;
+        }
+      }
+    } catch (e) {
+      // ignore and fall back
+    }
+
+    // Fallback to Nominatim
+    try {
+      const locationResponse = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+      );
+      if (locationResponse.ok) {
+        const locationData = await locationResponse.json();
+        const city = locationData.address?.city || locationData.address?.town || locationData.address?.village;
+        const state = locationData.address?.state;
+        const country = locationData.address?.country_code?.toUpperCase();
+        if (city && state) return `${city}, ${state}${country ? ' ' + country : ''}`;
+        if (city && country) return `${city}, ${country}`;
+        if (state) return `${state}${country ? ' ' + country : ''}`;
+        if (city) return city;
+      }
+    } catch (e) {
+      // ignore
+    }
+
+    return 'Your Location';
+  };
+
+  const snapToMoradabad = (lat: number, lon: number): string | null => {
+    const targetLat = 28.838648;
+    const targetLon = 78.773329;
+    const distanceKm = haversineKm(lat, lon, targetLat, targetLon);
+    return distanceKm <= 40 ? 'Moradabad, Uttar Pradesh IN' : null;
+  };
+
+  const haversineKm = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
+    const toRad = (deg: number) => (deg * Math.PI) / 180;
+    const R = 6371;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  };
+
   return (
     <div className="app-window glass-panel">
       <div className="app-header">
@@ -150,7 +209,6 @@ export default function WeatherApp({ onClose, voiceController }: Props) {
             </div>
 
             <div className="weather-main">
-              <span className="weather-icon">{getWeatherIcon(weather.condition)}</span>
               <div className="temperature-display">
                 <span className="temperature">{weather.temperature}°</span>
                 <span className="condition">{weather.condition}</span>
