@@ -1,5 +1,7 @@
-node_modules
-dist
-.cache
-*.log
+Holographic-Legacy/
+__pycache__/
+*.pyc
 .DS_Store
+.env
+venv/
+
