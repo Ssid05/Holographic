@@ -1,6 +1,6 @@
-#  Holographic 🎨🧠
+# Holographic 🎨🧠
 
-Holographic  is a project focused on building visual intelligence using modern AI and computer vision techniques.  
+Holographic is a project focused on building visual intelligence using modern AI and computer vision techniques.  
 The goal is to explore how machines can **see, understand, and reason about images** using deep learning.
 
 ---
@@ -24,9 +24,11 @@ The goal is to explore how machines can **see, understand, and reason about imag
 
 ## 📂 Project Structure
 ```text
-Vision-Canvas/
+Holographic/
 │── src/              # Core source code
 │── notebooks/        # Experiments & demos
 │── assets/           # Images / resources
 │── requirements.txt  # Dependencies
 │── README.md
+
+# Holo
