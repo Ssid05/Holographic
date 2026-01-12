@@ -1,6 +1,6 @@
-# Vision-Canvas 🎨🧠
+#  Holographic 🎨🧠
 
-Vision-Canvas is a project focused on building visual intelligence using modern AI and computer vision techniques.  
+Holographic  is a project focused on building visual intelligence using modern AI and computer vision techniques.  
 The goal is to explore how machines can **see, understand, and reason about images** using deep learning.
 
 ---
